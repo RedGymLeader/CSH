@@ -1,0 +1,74 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Dec 17, 2020 at 06:16 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.23
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `id14927610_customers`
+--
+CREATE DATABASE IF NOT EXISTS `id14927610_customers` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `id14927610_customers`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_reset_temp`
+--
+
+CREATE TABLE `password_reset_temp` (
+  `email` varchar(250) NOT NULL,
+  `key` varchar(250) NOT NULL,
+  `expDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(240) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `name`, `lastname`, `password`, `email`) VALUES
+(1, 'customer', 'customer', 'customer', 'customer', 'hunkelem08@uiu.edu');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;

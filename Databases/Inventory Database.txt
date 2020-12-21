@@ -1,0 +1,283 @@
+
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `id14927610_inventory`
+--
+CREATE DATABASE IF NOT EXISTS `id14927610_inventory` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `id14927610_inventory`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `BackWalls`
+--
+
+CREATE TABLE `BackWalls` (
+  `Maker` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Pattern` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Description` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `ItemNumber` int(40) NOT NULL,
+  `Price` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Quantity` int(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `BackWalls`
+--
+
+INSERT INTO `BackWalls` (`Maker`, `Pattern`, `Description`, `ItemNumber`, `Price`, `Quantity`) VALUES
+('MC', '2x8 Herringbone', '30\"hx35\"wx1.25-1.5\"', 3604201, '$150.50', 0),
+('MC', '2x8 Small Brick Patter', '24\"hx33\"wx1-1.25\"', 3604197, '#95.35', 0),
+('MC', '4x8 Large Brick Pattern', '24\"hx33\"wx1-1.15\"', 3604200, '$95.35', 3),
+('Hargrove', '3x8 Brick', '24\"h x 28\"w x 1\"', 3604195, '$83.60', 6),
+('Skamol', '2.5x8.5 Brick', '24\"h x 39.5\"w x 1\"', 3577991, '$66.00', 1),
+('Skamol', '1.5\" x 6\" Herringbone', '24\"h x 38.5\"w x 1\"', 3577992, '$66.00', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Caps`
+--
+
+CREATE TABLE `Caps` (
+  `Mesh` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `BaseSS` int(40) NOT NULL,
+  `BaseWidth` int(40) NOT NULL,
+  `ScreenHeight` int(40) NOT NULL,
+  `FitsOutsideTileDimensions` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Material` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `ItemNumber` int(40) NOT NULL,
+  `PartNumber` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `OrderPrice` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Quantity` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Caps`
+--
+
+INSERT INTO `Caps` (`Mesh`, `BaseSS`, `BaseWidth`, `ScreenHeight`, `FitsOutsideTileDimensions`, `Material`, `ItemNumber`, `PartNumber`, `OrderPrice`, `Quantity`) VALUES
+('3/4', 12, 12, 8, '10.5 x 10.5 to 13 x 13', 'Galv', 14806, 'GSB13X13', '$36.95', 4),
+('3/4', 8, 13, 8, '6.5 x 11.5 to 9 x 14', 'Galv', 14803, 'GSB9X13', '$34.45', 4),
+('3/4', 8, 8, 8, '6.5 x 6.5 to 9 x 9', 'Galv', 14801, 'GSB9X9', '$33.55', 4),
+('3/4', 12, 12, 8, '10.5 x 10.5 to 13 x 13', 'SS', 14606, 'SSSB12X12', '$53.15', 4),
+('3/4', 8, 13, 8, '6.5 x 11. 5 to 9 x 14', 'SS', 14603, 'SSSB9X13', '$46.00', 4),
+('3/4', 8, 8, 8, '6.5 x 6.5 to 9 x 9', 'SS', 14601, 'SSSB9X9', '$40.65', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CurrentInventory`
+--
+
+CREATE TABLE `CurrentInventory` (
+  `id` int(11) NOT NULL,
+  `Type` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `Price` decimal(11,2) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `ItemNumber` varchar(11) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `CurrentInventory`
+--
+
+INSERT INTO `CurrentInventory` (`id`, `Type`, `Description`, `Price`, `Quantity`, `ItemNumber`) VALUES
+(4, 'Cap', '8x13x8, 3/4 Mesh Galv', 34.00, 5, '14803'),
+(5, 'Cap', '8x8x8, 3/4 Mesh Galv', 34.00, 4, '14801'),
+(6, 'Cap', '8x13x8, 3/4 Mesh SS', 46.00, 4, '14603'),
+(7, 'Cap', '8x8x8, 3/4 Mesh SS', 41.00, 4, '14601'),
+(19, 'Gas Log Set', 'Allegheny Oak Vented, 17', 104.00, 2, '3602600'),
+(20, 'Gas Log Set', 'Allegheny Oak Vented,17\"h x 30\"w x 15\"d', 111.00, 1, '3602601'),
+(21, 'Gas Log Set', 'Allegheny Oak Vented,17\"h x 36\"w x 15\"d', 131.00, 1, '3602602'),
+(22, 'Gas Log Set for robin', 'Burnt Mountain Oak Vented,17', 196.00, 1, '3602604'),
+(23, 'Gas Log Set', 'Burnt Mountain Oak Vented, 17\"h x 30\"w x 15\"d', 222.00, 1, '3602605'),
+(24, 'Gas Log Set', 'Burnt Mountain Oak Vented, 17', 285.00, 2, '3602606'),
+(25, 'Gas Log Set', 'Cord Oak Vented, 17', 193.00, 1, '3602080'),
+(26, 'Gas Log Set', 'Cord Oak Vented, 17', 219.00, 1, '3602609'),
+(27, 'Gas Log Set', 'Cord Oak Vented, 17\"h x 36\"w x 15\"d', 273.00, 1, '3602610'),
+(29, 'Gas Log Set', 'Adirondack Oak Vent Free,18\"h x 28\"w x 14\"d ', 185.00, 1, '3602598'),
+(30, 'Gas Log Set', 'Adirondack Oak Vent Free, 18\"h x 34\"w x 14\"d ', 228.00, 1, '3602599'),
+(31, 'Back Wall', 'MC 2x8 Herringbone, 30', 151.00, 2, '3604201'),
+(32, 'Back Wall', 'MC 2x8 Small Brick Pattern, 24', 96.00, 1, '3604197'),
+(33, 'Back Wall', 'MC 4x8 Large Brick Pattern, 24\"hx33\"wx1-1.15\"', 95.00, 3, '3604200'),
+(34, 'Back Wall', 'Hargrove 3x8 Brick, 24\"h x 28\"w x 1\"', 84.00, 6, '3604195'),
+(35, 'Back Wall', 'Skamol 2.5x8.5 Brick, 24\"h x 39.5\"w x 1\"', 66.00, 1, '3577991'),
+(36, 'Back Wall', 'Skamol 1.5\" x 6\" Herringbone, 24\"h x 38.5\"w x 1\"', 66.00, 2, '3577992'),
+(37, 'Other', 'Decor Pack (Gas Logs)	', 54.00, 3, '3602611'),
+(38, 'Other', 'Refresh Kit (Gas Logs)', 60.00, 5, '3602615'),
+(39, 'Other', 'White Sand 10lb (Gas Logs)', 80.00, 4, '3602603'),
+(40, 'Other', 'Vermiculite Granules (Gas logs)', 167.00, 2, '3602607'),
+(62, 'bookForRobin', '15.99', 15.99, 4, '3143114324');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `lastName` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Address` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(40) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `firstName`, `lastName`, `Address`, `phone`, `email`) VALUES
+(8, 'Matthew', 'Hunkele', '20 Marshall Drive, Waukee IA, 50263', '5158979301', 'hunkelem08@uiu.edu'),
+(9, 'John', 'Jingleheimer-Schmidt', '123 Hummingbird Way, Waukee IA, 50263', '5555555555', 'jjjingleheimer-schmidt@gmail.com'),
+(10, 'Abe', 'Lincoln', '2995 Lincoln Farm Rd, Hodgenville, KY 42748', '5159998888', 'ablincoln@gmail.com'),
+(11, 'Soe', 'Lah', 'Amherst Ave', '3195041968', 'lahs59@uiu.edu'),
+(12, 'robin', 'deitsch', '1234 main st', '1234567', 'deitschr@uiu.edu'),
+(13, 'A', 'This Is The Edit', 'A', '555555555', 'matt.t.hunkele@gmail.com'),
+(17, 'Bo', 'Carey', '5011 Duder Way', '1', 'careyb00@uiu.edu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fileup`
+--
+
+CREATE TABLE `fileup` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `image` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `fileup`
+--
+
+INSERT INTO `fileup` (`id`, `title`, `image`) VALUES
+(5, 'Johnson Estimate', 0x313934392d4a6f686e736f6e457374696d6174652e706466),
+(6, 'Johnson Inspection', 0x363039392d4a6f686e736f6e496e7370656374696f6e2e706466),
+(22, 'test', 0x363336312d435348496e7370656374696f6e2e706466),
+(23, 'Final Inspection', 0x383632362d46494e414c496e7370656374696f6e466f726d2e706466),
+(24, 'Most recent pdf', 0x383636362d435348457374696d6174652e706466),
+(25, 'Final Estimate', 0x383231362d435348457374696d6174652d322e706466),
+(26, 'Estimate for Hendersons', 0x343038312d435348457374696d6174652d332e706466);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `GasLogs`
+--
+
+CREATE TABLE `GasLogs` (
+  `ItemNumber` int(40) NOT NULL,
+  `GasLogSet` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Size` int(40) NOT NULL,
+  `MinFireplaceOpening` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Price` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Quantity` int(40) NOT NULL,
+  `LogType` varchar(40) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `GasLogs`
+--
+
+INSERT INTO `GasLogs` (`ItemNumber`, `GasLogSet`, `Size`, `MinFireplaceOpening`, `Price`, `Quantity`, `LogType`) VALUES
+(3602600, 'Allegheny Oak Vented', 18, '17\"h x 26\"w x 15\"d', '$104.00', 1, 'Vented'),
+(3602601, 'Allegheny oak Vented', 24, '17\"h x 30\"w x 15\"d', '$111.00', 1, 'Vented'),
+(3602602, 'Allegheny Oak Vented', 30, '17\"h x 36\"w x 15\"d', '$131.00', 1, 'Vented'),
+(3602604, 'Burnt Mountain Oak Vented', 18, '17\"h x 26\"w x 15\"d', '$196.00', 1, 'Vented'),
+(3602605, 'Burnt Mountain Oak Vented', 24, '17\"h x 30\"w x 15\"d', '$222.00', 1, 'Vented'),
+(3602606, 'Burnt Mountain Oak Vented', 30, '17\"h x 36\"w x 15\"d', '$285.00', 1, 'Vented'),
+(360208, 'Cord Oak Vented', 18, '17\"h x 26\"w x 15\"d', '$193.00', 1, 'Vented'),
+(3602609, 'Cord Oak Vented', 24, '17\"h x 30\"w x 15\"d', '$219.00', 1, 'Vented'),
+(3602610, 'Cord Oak Vented', 30, '17\"h x 36\"w x 15\"d', '$273.00', 1, 'Vented'),
+(3602597, 'Adirondack Oak Vent Free', 18, '18\"h x 22\"w x 13\"d', '$168.00', 1, 'Unvented'),
+(3602598, 'Adirondack Oak Vent Free', 24, '18\"h x 28\"w x 14\"d', '$185.00', 1, 'Unvented'),
+(3602599, 'Adirondack Oak Vent Free', 30, '18\"h x 34\"w x 14\"d', '$228.00', 1, 'Unvented');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Other`
+--
+
+CREATE TABLE `Other` (
+  `Type` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Description` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Price` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `Quantity` int(40) NOT NULL,
+  `ItemNumber` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `Other`
+--
+
+INSERT INTO `Other` (`Type`, `Description`, `Price`, `Quantity`, `ItemNumber`) VALUES
+('GasLogs', 'Decor Pack', '$54.00', 3, 3602611),
+('GasLogs', 'Refresh Kit', '$60.00', 5, 3602615),
+('GasLogs', 'White Sand 10lb', '$80.00', 4, 3602603),
+('GasLogs', 'Vermiculite Granules', '$167.00', 2, 3602607);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Caps`
+--
+ALTER TABLE `Caps`
+  ADD PRIMARY KEY (`PartNumber`);
+
+--
+-- Indexes for table `CurrentInventory`
+--
+ALTER TABLE `CurrentInventory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fileup`
+--
+ALTER TABLE `fileup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `CurrentInventory`
+--
+ALTER TABLE `CurrentInventory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `fileup`
+--
+ALTER TABLE `fileup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+COMMIT;
+
+
+[ Back ][ Refresh ]
+Open new phpMyAdmin window
